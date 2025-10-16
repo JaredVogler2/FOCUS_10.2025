@@ -1,0 +1,72 @@
+# PyCharm
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# CSV and Excel files in root directory (except scheduling_data.csv)
+/*.csv
+/*.xlsx
+/*.xls
+/*.xlsm
+/*.xlsb
+/*.ods
+
+# Keep scheduling_data.csv (this overrides the *.csv rule)
+!scheduling_data.csv
+
+# Logs and runtime files
+*.log
+*.log.*
+
+# Export directory (runtime generated)
+exports/
+
+# Screenshots and documentation images
+*.png
+*.jpg
+*.jpeg
+*.gif
+!static/images/Negative-mask-effect.gif
+
+# Backup files
+*_backup.*
+*_BACKUP*
+*.bak
+*- Copy.*
+
+# Testing artifacts
+playwright-report/
+test-results/
+runs/
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.rar

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOCUS</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis-timeline/7.4.8/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-timeline/7.4.8/vis-timeline-graph2d.min.js"></script>
+    <style>
+        .wg-group-label {
+            font-size: 12px;
+            text-align: left;
+        }
+        .vis-item.wg-critical {
+            border: 2px solid red !important;
+            box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+        .vis-item.wg-highlight {
+            background-color: yellow !important;
+            border-color: #FFD700 !important;
+            color: black !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>
+                <div class="icon">JV</div>
+                FOCUS Dashboard
+            </h1>
+            <div class="controls">
+                <div class="scenario-selector">
+                    <label>Scenario:</label>
+                    <select id="scenarioSelect">
+                        <option value="baseline">Baseline (CSV Capacity)</option>
+                        <option value="scenario1">Scenario 1: CSV Headcount</option>
+                        <option value="scenario2">Scenario 2: Minimize Makespan</option>
+                        <option value="scenario3">Scenario 3: Multi-Dimensional</option>
+                    </select>
+                </div>
+                <div class="view-tabs">
+                    <button class="view-tab active" data-view="team-lead">Team Lead</button>
+                    <button class="view-tab" data-view="management">Management</button>
+                    <button class="view-tab" data-view="mechanic">Individual</button>
+                    <button class="view-tab" data-view="project">Project View</button>
+                    <button class="view-tab" data-view="worker-gantt">Worker Gantt</button>
+                    <button class="view-tab" data-view="supply-chain">Supply Chain</button>
+                    <button class="view-tab" data-view="industrial-engineering">Industrial Engineering</button>
+                    <button class="view-tab" data-view="todo">To Do</button>
+                    <button class="view-tab" data-view="scenario">Run Scenarios</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            {% include 'partials/_todo_view.html' %}
+            {% include 'partials/_team_lead_view.html' %}
+            {% include 'partials/_management_view.html' %}
+            {% include 'partials/_mechanic_view.html' %}
+            {% include 'partials/_project_view.html' %}
+            {% include 'partials/_worker_gantt_view.html' %}
+            {% include 'partials/_supply_chain_view.html' %}
+            {% include 'partials/_industrial_engineering_view.html' %}
+            {% include 'partials/_scenario_view.html' %}
+        </div>
+    </div>
+
+    <!-- Load the corrected JavaScript file from static folder -->
+    <script src="{{ url_for('static', filename='js/dashboard-js.js', v='2.0') }}"></script>
+
+    <!-- Task Chain Modal -->
+    <div id="task-chain-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Dependency Chain for Task: <span id="modal-task-id"></span></h2>
+                <span class="chain-modal-close">&times;</span>
+            </div>
+            <div id="task-chain-content" class="modal-body">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
