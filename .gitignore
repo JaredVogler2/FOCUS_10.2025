@@ -30,15 +30,15 @@ venv.bak/
 Thumbs.db
 
 # CSV and Excel files in root directory (except scheduling_data.csv)
-/*.csv
-/*.xlsx
-/*.xls
-/*.xlsm
-/*.xlsb
-/*.ods
+#/*.csv
+#/*.xlsx
+#/*.xls
+#/*.xlsm
+#/*.xlsb
+#/*.ods
 
 # Keep scheduling_data.csv (this overrides the *.csv rule)
-!scheduling_data.csv
+#!scheduling_data.csv
 
 # Logs and runtime files
 *.log
@@ -47,12 +47,14 @@ Thumbs.db
 # Export directory (runtime generated)
 exports/
 
-# Screenshots and documentation images
+# Screenshots and documentation images (but allow static/images/)
 *.png
 *.jpg
 *.jpeg
 *.gif
-!static/images/Negative-mask-effect.gif
+!static/images/*.png
+!static/images/*.gif
+!static/images/*.jpg
 
 # Backup files
 *_backup.*
