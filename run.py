@@ -13,4 +13,4 @@ if __name__ == '__main__':
     if os.environ.get('WERKZEUG_RUN_MAIN') != 'true':
         server_utils.check_and_kill_port(5000)
         # threading.Timer(1.25, open_browser).start()
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5000, use_reloader=False)
